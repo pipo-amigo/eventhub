@@ -1,16 +1,14 @@
 <article class="carte" [class.termine]="termine()" [routerLink]="['/evenements', evenement().id]">
-  <div class="carte__haut">
-    <app-badge-categorie [categorie]="evenement().categorie"></app-badge-categorie>
-    @if (termine()) {
-      <span class="mention-termine">Terminé</span>
-    }
-  </div>
+  <app-badge-categorie [categorie]="evenement().categorie"></app-badge-categorie>
+  @if (termine()) {
+    <strong> (Terminé)</strong>
+  }
 
-  <h2>{{ evenement().titre }}</h2>
-  <p class="club">{{ evenement().club }}</p>
-  <p>📅 {{ evenement().date | date: 'EEE d MMM y, HH:mm' }}</p>
-  <p>📍 {{ evenement().lieu }}</p>
-  <p>{{ evenement().gratuit ? 'Gratuit' : 'Payant' }} · {{ restantes() | etatPlaces }}</p>
+  <h3>{{ evenement().titre }}</h3>
+  <p>Club : {{ evenement().club }}</p>
+  <p>Date : {{ evenement().date | date: 'EEE d MMM y, HH:mm' }}</p>
+  <p>Lieu : {{ evenement().lieu }}</p>
+  <p>{{ evenement().gratuit ? 'Gratuit' : 'Payant' }} - {{ restantes() | etatPlaces }}</p>
 
-  <button class="favori" (click)="ajouterAuxFavoris($event)">☆ Ajouter aux favoris</button>
+  <button (click)="ajouterAuxFavoris($event)">Ajouter aux favoris</button>
 </article>

@@ -1,51 +1,10 @@
-.detail {
-  background: #fff;
-  border: 1px solid #dadae3;
-  border-radius: 10px;
-  padding: 24px;
-  max-width: 720px;
-}
-
-.detail h1 {
-  margin: 12px 0 4px;
-}
-
-.club {
-  color: #6b6b7b;
-  font-weight: 600;
-}
-
-.infos {
-  list-style: none;
-  padding: 0;
-}
-
-.infos li {
-  margin: 6px 0;
-}
-
 .barre {
-  height: 12px;
-  background: #e6e6ef;
-  border-radius: 999px;
-  overflow: hidden;
+  width: 300px;
+  height: 15px;
+  border: 1px solid #ccc;
 }
 
 .barre__remplie {
   height: 100%;
-  background: #4b3fd1;
-}
-
-.etat {
-  font-weight: 700;
-}
-
-.mention-termine {
-  margin-left: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #6b6b7b;
-  border: 1px solid #6b6b7b;
-  border-radius: 4px;
-  padding: 1px 6px;
+  background-color: #dd0031;
 }

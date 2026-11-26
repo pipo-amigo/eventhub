@@ -16,7 +16,7 @@
   </select>
 </div>
 
-<p class="info">⭐ {{ favoris().length }} favori(s)</p>
+<p>Favoris : {{ favoris().length }}</p>
 
 <section class="grille">
   @for (e of evenements.liste() | filtreEvenements: recherche : categorie | triEvenements: tri; track e.id) {

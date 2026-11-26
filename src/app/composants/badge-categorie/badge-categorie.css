@@ -1,14 +1,11 @@
 .badge {
-  display: inline-block;
-  padding: 2px 10px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #fff;
-  background-color: #6b6b7b;
+  padding: 2px 8px;
+  color: white;
+  font-size: 12px;
+  background-color: gray;
 }
 
-.badge--atelier { background-color: #0e7c86; }
-.badge--conference { background-color: #4b3fd1; }
+.badge--atelier { background-color: green; }
+.badge--conference { background-color: blue; }
 .badge--competition { background-color: #dd0031; }
-.badge--sortie { background-color: #e08a00; }
+.badge--sortie { background-color: orange; }

@@ -2,15 +2,14 @@
 <p>Bonjour {{ session.utilisateur()?.nom }}</p>
 
 @for (d of details(); track d.id) {
-  <article class="ligne">
-    <div>
-      <h2>{{ d.evenement?.titre ?? 'Événement inconnu' }}</h2>
-      <p>📅 {{ d.evenement?.date | date: 'EEE d MMM y, HH:mm' }}</p>
-      <p>{{ d.nbPlaces }} place(s) · réservé le {{ d.dateReservation | date: 'dd/MM/yyyy à HH:mm' }}</p>
-    </div>
-    <button class="btn btn--secondaire" (click)="reservations.annuler(d.id)">Annuler</button>
-  </article>
+  <div class="ligne">
+    <h3>{{ d.evenement?.titre ?? 'Événement inconnu' }}</h3>
+    <p>Date : {{ d.evenement?.date | date: 'EEE d MMM y, HH:mm' }}</p>
+    <p>Nombre de places : {{ d.nbPlaces }}</p>
+    <p>Réservé le : {{ d.dateReservation | date: 'dd/MM/yyyy à HH:mm' }}</p>
+    <button (click)="reservations.annuler(d.id)">Annuler</button>
+  </div>
 } @empty {
-  <p class="info">Vous n'avez aucune réservation pour le moment.</p>
-  <a routerLink="/evenements">Parcourir les événements</a>
+  <p>Vous n'avez aucune réservation pour le moment.</p>
+  <a routerLink="/evenements">Voir les événements</a>
 }
