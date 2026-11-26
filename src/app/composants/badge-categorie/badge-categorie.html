@@ -1,0 +1,7 @@
+@switch (categorie()) {
+  @case ('atelier') { <span class="badge badge--atelier">Atelier</span> }
+  @case ('conference') { <span class="badge badge--conference">Conférence</span> }
+  @case ('competition') { <span class="badge badge--competition">Compétition</span> }
+  @case ('sortie') { <span class="badge badge--sortie">Sortie</span> }
+  @default { <span class="badge">{{ categorie() }}</span> }
+}

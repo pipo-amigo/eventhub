@@ -1,0 +1,27 @@
+<h1>Événements des clubs</h1>
+
+<div class="controles">
+  <input [(ngModel)]="recherche" placeholder="Rechercher par titre ou club..." />
+  <select [(ngModel)]="categorie">
+    <option value="">Toutes les catégories</option>
+    <option value="atelier">Atelier</option>
+    <option value="conference">Conférence</option>
+    <option value="competition">Compétition</option>
+    <option value="sortie">Sortie</option>
+  </select>
+  <select [(ngModel)]="tri">
+    <option value="date-asc">Date (plus proche d'abord)</option>
+    <option value="date-desc">Date (plus lointaine d'abord)</option>
+    <option value="places">Places restantes</option>
+  </select>
+</div>
+
+<p class="info">⭐ {{ favoris().length }} favori(s)</p>
+
+<section class="grille">
+  @for (e of evenements.liste() | filtreEvenements: recherche : categorie | triEvenements: tri; track e.id) {
+    <app-carte-evenement [evenement]="e" (favori)="ajouterFavori($event)"></app-carte-evenement>
+  } @empty {
+    <p class="info">Aucun événement ne correspond à votre recherche.</p>
+  }
+</section>

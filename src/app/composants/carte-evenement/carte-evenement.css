@@ -1,0 +1,60 @@
+.carte {
+  background: #fff;
+  border: 1px solid #dadae3;
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.carte:hover {
+  border-color: #4b3fd1;
+  box-shadow: 0 4px 12px rgba(75, 63, 209, 0.15);
+}
+
+.carte h2 {
+  font-size: 1.1rem;
+  margin: 10px 0 4px;
+}
+
+.carte p {
+  margin: 4px 0;
+}
+
+.carte__haut {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.club {
+  color: #6b6b7b;
+  font-weight: 600;
+}
+
+.favori {
+  margin-top: auto;
+  align-self: flex-start;
+  background: #fff;
+  color: #4b3fd1;
+  border: 1px solid #4b3fd1;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+/* Événement passé : grisé */
+.carte.termine {
+  opacity: 0.55;
+  filter: grayscale(1);
+}
+
+.mention-termine {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #6b6b7b;
+  border: 1px solid #6b6b7b;
+  border-radius: 4px;
+  padding: 1px 6px;
+}

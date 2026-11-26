@@ -1,0 +1,25 @@
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.controles input,
+.controles select {
+  padding: 8px 10px;
+  border: 1px solid #dadae3;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.controles input {
+  flex: 1;
+  min-width: 220px;
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
