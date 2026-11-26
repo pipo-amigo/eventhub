@@ -1,8 +1,23 @@
 /* Styles globaux */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f2f2f5;
+  color: #222;
+}
+
+h1 {
+  margin-top: 0;
+  color: #1b1b2f;
+}
+
+a {
+  color: #dd0031;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
 }
 
 .btn {
@@ -10,30 +25,38 @@ body {
   background-color: #dd0031;
   color: white;
   border: none;
-  padding: 8px 16px;
+  border-radius: 5px;
+  padding: 9px 18px;
+  font-weight: bold;
   text-decoration: none;
-  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #b80029;
 }
 
 .btn:disabled {
-  background-color: #999;
+  background-color: #aaa;
   cursor: not-allowed;
 }
 
 .info {
-  color: gray;
+  color: #666;
 }
 
 .succes {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 10px;
+  background-color: #e3f6ea;
+  border-left: 4px solid #1f8a5b;
+  padding: 10px 14px;
+  max-width: 500px;
 }
 
 .alerte-erreur {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 10px;
+  background-color: #fde8ec;
+  border-left: 4px solid #dd0031;
+  color: #a00024;
+  padding: 10px 14px;
+  max-width: 500px;
 }
 
 /* Formulaires */
@@ -44,13 +67,21 @@ body {
 .champ label {
   display: block;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .champ input,
 .champ select,
 .champ textarea {
-  width: 300px;
-  padding: 5px;
+  width: 350px;
+  padding: 7px 9px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.champ--case label {
+  font-weight: normal;
 }
 
 .champ--case input {
@@ -60,11 +91,17 @@ body {
 .champ input.ng-invalid.ng-touched,
 .champ select.ng-invalid.ng-touched,
 .champ textarea.ng-invalid.ng-touched {
-  border: 1px solid red;
+  border-color: #dd0031;
+}
+
+.champ input.ng-valid.ng-touched,
+.champ select.ng-valid.ng-touched,
+.champ textarea.ng-valid.ng-touched {
+  border-color: #1f8a5b;
 }
 
 .erreur {
-  color: red;
+  color: #dd0031;
   font-size: 13px;
-  margin: 3px 0;
+  margin: 4px 0 0;
 }

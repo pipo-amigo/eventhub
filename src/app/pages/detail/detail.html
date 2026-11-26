@@ -1,28 +1,30 @@
 @if (evenement(); as e) {
-  <app-badge-categorie [categorie]="e.categorie"></app-badge-categorie>
-  @if (termine()) {
-    <strong> (Terminé)</strong>
-  }
+  <div class="detail">
+    <app-badge-categorie [categorie]="e.categorie"></app-badge-categorie>
+    @if (termine()) {
+      <span class="mention-termine">Terminé</span>
+    }
 
-  <h1>{{ e.titre }}</h1>
-  <p>{{ e.description }}</p>
+    <h1>{{ e.titre }}</h1>
+    <p>{{ e.description }}</p>
 
-  <p>Club : {{ e.club }}</p>
-  <p>Date : {{ e.date | date: 'EEEE d MMMM y, HH:mm' }}</p>
-  <p>Lieu : {{ e.lieu }}</p>
-  <p>Prix : {{ e.gratuit ? 'Gratuit' : 'Payant' }}</p>
-  <p>Places réservées : {{ e.placesReservees }} / {{ e.capacite }}</p>
+    <p><strong>Club :</strong> {{ e.club }}</p>
+    <p><strong>Date :</strong> {{ e.date | date: 'EEEE d MMMM y, HH:mm' }}</p>
+    <p><strong>Lieu :</strong> {{ e.lieu }}</p>
+    <p><strong>Prix :</strong> {{ e.gratuit ? 'Gratuit' : 'Payant' }}</p>
+    <p><strong>Places réservées :</strong> {{ e.placesReservees }} / {{ e.capacite }}</p>
 
-  <div class="barre">
-    <div class="barre__remplie" [style.width.%]="remplissage()"></div>
+    <div class="barre">
+      <div class="barre__remplie" [style.width.%]="remplissage()"></div>
+    </div>
+    <p class="etat">{{ restantes() | etatPlaces }}</p>
+
+    @if (reservations.estInscrit(e.id)) {
+      <p class="succes">Vous êtes déjà inscrit à cet événement.</p>
+    } @else if (!termine() && restantes() > 0) {
+      <a class="btn" [routerLink]="['/evenements', e.id, 'reserver']">Réserver</a>
+    }
   </div>
-  <p><strong>{{ restantes() | etatPlaces }}</strong></p>
-
-  @if (reservations.estInscrit(e.id)) {
-    <p class="succes">Vous êtes déjà inscrit à cet événement.</p>
-  } @else if (!termine() && restantes() > 0) {
-    <a class="btn" [routerLink]="['/evenements', e.id, 'reserver']">Réserver</a>
-  }
 } @else {
   <p class="alerte-erreur">Événement introuvable.</p>
 }

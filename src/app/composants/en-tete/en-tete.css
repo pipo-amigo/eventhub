@@ -1,9 +1,9 @@
 .en-tete {
   background-color: #1b1b2f;
-  padding: 10px 20px;
+  padding: 12px 30px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
 }
 
 .logo {
@@ -15,13 +15,21 @@
 
 .menu {
   flex: 1;
+  display: flex;
+  gap: 5px;
 }
 
 .menu a,
 .connexion a {
   color: white;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+.menu a:hover,
+.connexion a:hover {
+  background-color: #2e2e4d;
 }
 
 .menu a.actif,
@@ -31,8 +39,20 @@
 
 .connexion {
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .connexion button {
-  margin-left: 10px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+
+.connexion button:hover {
+  background-color: white;
+  color: #1b1b2f;
 }

@@ -1,4 +1,12 @@
 .comptes {
-  margin-top: 20px;
-  color: gray;
+  margin-top: 25px;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  color: #666;
+}
+
+.comptes p {
+  margin: 5px 0;
 }

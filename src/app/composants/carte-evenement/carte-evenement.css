@@ -1,23 +1,65 @@
 .carte {
-  border: 1px solid #ccc;
-  padding: 10px;
-  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px;
   background-color: white;
+  cursor: pointer;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .carte:hover {
-  background-color: #fafafa;
+  border-color: #dd0031;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.haut {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .carte h3 {
-  margin: 8px 0;
+  margin: 10px 0 4px;
+  color: #1b1b2f;
 }
 
 .carte p {
   margin: 4px 0;
+  font-size: 14px;
+}
+
+.club {
+  color: #666;
+}
+
+.favori {
+  margin-top: 10px;
+  align-self: flex-start;
+  background-color: white;
+  color: #dd0031;
+  border: 1px solid #dd0031;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.favori:hover {
+  background-color: #dd0031;
+  color: white;
 }
 
 /* Événement passé : grisé */
 .termine {
-  opacity: 0.5;
+  opacity: 0.55;
+}
+
+.mention-termine {
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 1px 6px;
 }

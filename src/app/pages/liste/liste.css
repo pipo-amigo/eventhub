@@ -1,19 +1,23 @@
 .controles {
+  display: flex;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
 .controles input,
 .controles select {
-  padding: 5px;
-  margin-right: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
 }
 
 .controles input {
-  width: 300px;
+  flex: 1;
 }
 
 .grille {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 15px;
 }

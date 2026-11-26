@@ -1,10 +1,36 @@
+.detail h1 {
+  margin: 10px 0;
+}
+
+.detail p {
+  margin: 6px 0;
+}
+
+.mention-termine {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
 .barre {
-  width: 300px;
-  height: 15px;
-  border: 1px solid #ccc;
+  width: 350px;
+  height: 12px;
+  margin-top: 12px;
+  background-color: #e5e5ea;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .barre__remplie {
   height: 100%;
   background-color: #dd0031;
+}
+
+.etat {
+  font-weight: bold;
+  margin-bottom: 15px;
 }
