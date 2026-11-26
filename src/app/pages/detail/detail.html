@@ -1,0 +1,34 @@
+@if (evenement(); as e) {
+  <article class="detail">
+    <app-badge-categorie [categorie]="e.categorie"></app-badge-categorie>
+    @if (termine()) {
+      <span class="mention-termine">Terminé</span>
+    }
+
+    <h1>{{ e.titre }}</h1>
+    <p class="club">{{ e.club }}</p>
+    <p>{{ e.description }}</p>
+
+    <ul class="infos">
+      <li>📅 {{ e.date | date: 'EEEE d MMMM y, HH:mm' }}</li>
+      <li>📍 {{ e.lieu }}</li>
+      <li>💰 {{ e.gratuit ? 'Gratuit' : 'Payant' }}</li>
+      <li>👥 {{ e.placesReservees }} / {{ e.capacite }} places réservées</li>
+    </ul>
+
+    <div class="barre">
+      <div class="barre__remplie" [style.width.%]="remplissage()"></div>
+    </div>
+    <p class="etat">{{ restantes() | etatPlaces }}</p>
+
+    @if (reservations.estInscrit(e.id)) {
+      <p class="succes">Vous êtes déjà inscrit à cet événement.</p>
+    } @else if (!termine() && restantes() > 0) {
+      <a class="btn" [routerLink]="['/evenements', e.id, 'reserver']">Réserver</a>
+    }
+  </article>
+} @else {
+  <p class="alerte-erreur">Événement introuvable.</p>
+}
+
+<p><a routerLink="/evenements">← Retour à la liste</a></p>
