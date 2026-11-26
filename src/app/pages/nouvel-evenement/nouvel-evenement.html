@@ -1,0 +1,86 @@
+<h1>Nouvel événement</h1>
+
+<form [formGroup]="form" (ngSubmit)="publier()" novalidate>
+  <div class="champ">
+    <label for="titre">Titre</label>
+    <input id="titre" formControlName="titre" />
+    @if (titre.invalid && titre.touched) {
+      <p class="erreur">
+        @if (titre.errors?.['required']) { Le titre est obligatoire. }
+        @else if (titre.errors?.['minlength']) { Au moins 5 caractères. }
+        @else if (titre.errors?.['maxlength']) { 60 caractères maximum. }
+      </p>
+    }
+  </div>
+
+  <div class="champ">
+    <label for="description">Description</label>
+    <textarea id="description" rows="4" formControlName="description"></textarea>
+    @if (description.invalid && description.touched) {
+      <p class="erreur">
+        @if (description.errors?.['required']) { La description est obligatoire. }
+        @else if (description.errors?.['minlength']) {
+          Au moins 20 caractères (encore {{ 20 - (description.value?.length ?? 0) }}).
+        }
+      </p>
+    }
+  </div>
+
+  <div class="champ">
+    <label for="categorie">Catégorie</label>
+    <select id="categorie" formControlName="categorie">
+      <option value="">-- Choisir --</option>
+      @for (c of categories; track c.valeur) {
+        <option [value]="c.valeur">{{ c.libelle }}</option>
+      }
+    </select>
+    @if (categorie.invalid && categorie.touched) {
+      <p class="erreur">Choisissez une catégorie.</p>
+    }
+  </div>
+
+  <div class="champ">
+    <label for="club">Club</label>
+    <input id="club" formControlName="club" />
+    @if (club.invalid && club.touched) {
+      <p class="erreur">Le club est obligatoire.</p>
+    }
+  </div>
+
+  <div class="champ">
+    <label for="lieu">Lieu</label>
+    <input id="lieu" formControlName="lieu" />
+    @if (lieu.invalid && lieu.touched) {
+      <p class="erreur">Le lieu est obligatoire.</p>
+    }
+  </div>
+
+  <div class="champ">
+    <label for="date">Date et heure</label>
+    <input id="date" type="datetime-local" formControlName="date" />
+    @if (date.invalid && date.touched) {
+      <p class="erreur">
+        @if (date.errors?.['required']) { La date est obligatoire. }
+        @else if (date.errors?.['dateFuture']) { La date doit être dans le futur. }
+      </p>
+    }
+  </div>
+
+  <div class="champ">
+    <label for="capacite">Capacité (nombre de places)</label>
+    <input id="capacite" type="number" formControlName="capacite" />
+    @if (capacite.invalid && capacite.touched) {
+      <p class="erreur">
+        @if (capacite.errors?.['required']) { La capacité est obligatoire. }
+        @else if (capacite.errors?.['pattern']) { Entrez un nombre entier. }
+        @else if (capacite.errors?.['min']) { Au moins 5 places. }
+      </p>
+    }
+  </div>
+
+  <div class="champ champ--case">
+    <label><input type="checkbox" formControlName="gratuit" /> Événement gratuit</label>
+  </div>
+
+  <button class="btn" type="submit" [disabled]="form.invalid">Publier</button>
+</form>
